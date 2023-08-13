@@ -2,11 +2,15 @@ package com.leeonscoding.todoapp.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.ZonedDateTime;
 
-@Data
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Notification extends BaseModel {
     @Id
@@ -23,4 +27,8 @@ public class Notification extends BaseModel {
 
     @Enumerated(value = EnumType.STRING)
     private NotificationStatus status;
+
+    @OneToOne
+    @JoinColumn(name = "task_id", foreignKey = @ForeignKey(name = "fk_task_id"))
+    Task task;
 }

@@ -2,11 +2,15 @@ package com.leeonscoding.todoapp.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.ZonedDateTime;
 
-@Data
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Task extends BaseModel{
     @Id
@@ -33,8 +37,8 @@ public class Task extends BaseModel{
     @Enumerated(value = EnumType.STRING)
     private ImportanceLevel level;
 
-    private ZonedDateTime start;
-    private ZonedDateTime end;
+    private ZonedDateTime startDateTime;
+    private ZonedDateTime endDateTime;
 
     @ManyToOne
     @JoinColumn(name = "additional_owners_id", foreignKey = @ForeignKey(name = "fk_ad_user_id"))
