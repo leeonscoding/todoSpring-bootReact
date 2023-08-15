@@ -43,3 +43,19 @@ User
 * createdDate
 * updatedDate
 * role
+
+Api endpoints
+GET /api/user/{id}
+GET /api/user
+PUT /api/user/{id}
+DELETE /api/user/{id}
+
+GET /api/user/{id}/task
+GET /api/user/{id}/task/{id}?sort={}&page={}&size={}
+PUT /api/user/{id}/task/{id}
+DELETE /api/user/{id}/task/{id}
+GET /api/user/{id}/task?search
+
+
+
+
